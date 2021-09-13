@@ -30,7 +30,7 @@ app.use('/api/products', require('./routes/product.js'));
 app.use('/api/categories', require('./routes/categroy.js'));
 
 // listen to server in a port
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log("Server running...")
 })
