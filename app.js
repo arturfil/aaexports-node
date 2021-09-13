@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 
@@ -12,10 +13,16 @@ require('dotenv').config();
 mongoose.connect(process.env.MONGODB_URL)
   .then(() => console.log("Connected to DB"))
   .catch(() => console.log("Error connecting to MONGO"));
+
 // set up middlewares 
 app.use(cors()); // CROSS ORIGIN RESOURCE SHARING
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/',
+  createParentPath: true
+}));
 app.use(morgan('dev'));
 
 // routes
