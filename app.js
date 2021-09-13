@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-// const morgan = require('morgan');
 const mongoose = require('mongoose');
 const fileUpload = require('express-fileupload');
 
@@ -23,7 +22,6 @@ app.use(fileUpload({
   tempFileDir: '/tmp/',
   createParentPath: true
 }));
-// app.use(morgan('dev'));
 
 // routes
 app.use('/api/products', require('./routes/product.js'));
