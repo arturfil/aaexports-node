@@ -26,6 +26,7 @@ app.use(fileUpload({
 // routes
 app.use('/api/products', require('./routes/product.js'));
 app.use('/api/categories', require('./routes/categroy.js'));
+app.use('/api/auth', require('./routes/auth.js'));
 
 // listen to server in a port
 const port = process.env.PORT;
