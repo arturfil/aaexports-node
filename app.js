@@ -20,8 +20,8 @@ res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 res.setHeader('Access-Control-Allow-Credentials', true);
 next();
-});
-app.use(cors({
+},
+cors({
   origin: process.env.FRONTEND_POINT,
   credentials: true
 })); // CROSS ORIGIN RESOURCE SHARING
