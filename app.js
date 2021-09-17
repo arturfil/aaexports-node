@@ -14,11 +14,17 @@ mongoose.connect(process.env.MONGODB_URL)
   .catch(() => console.log("Error connecting to MONGO"));
 
 // set up middlewares 
-
-app.use(cors({
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+cors({
   origin: process.env.FRONTEND_POINT,
   credentials: true
-})); // CROSS ORIGIN RESOURCE SHARING
+}) // CROSS ORIGIN RESOURCE SHARING
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(fileUpload({
