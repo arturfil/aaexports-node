@@ -25,6 +25,7 @@ app.use(function (req, res, next) {
 //   origin: process.env.FRONTEND_POINT,
 //   credentials: true
 // }) // CROSS ORIGIN RESOURCE SHARING
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(fileUpload({
