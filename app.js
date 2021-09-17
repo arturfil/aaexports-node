@@ -21,10 +21,10 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
-cors({
-  origin: process.env.FRONTEND_POINT,
-  credentials: true
-}) // CROSS ORIGIN RESOURCE SHARING
+// cors({
+//   origin: process.env.FRONTEND_POINT,
+//   credentials: true
+// }) // CROSS ORIGIN RESOURCE SHARING
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(fileUpload({
